@@ -39,4 +39,6 @@
             <security:password-encoder ref="passwordEncoder"/>-->
         </security:authentication-provider>
     </security:authentication-manager>
+    <!--防止发生No visible WebSecurityExpressionHandler instance could be found in the application context异常-->
+    <bean id="webexpressionHandler" class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler" />
 </beans>

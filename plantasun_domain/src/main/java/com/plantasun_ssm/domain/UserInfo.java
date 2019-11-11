@@ -11,7 +11,7 @@ public class UserInfo implements Serializable{
     private String phoneNum;
     private int status;
     private String statusStr;
-    private List<Role> roles;
+    private List<Role> role;
     public String getId() {
         return id;
     }
@@ -73,12 +73,13 @@ public class UserInfo implements Serializable{
         this.statusStr = statusStr;
     }
 
-    public List<Role> getRoles() {
-        return roles;
+
+    public List<Role> getRole() {
+        return role;
     }
 
-    public void setRoles(List<Role> roles) {
-        this.roles = roles;
+    public void setRole(List<Role> role) {
+        this.role = role;
     }
 
     @Override
@@ -91,7 +92,7 @@ public class UserInfo implements Serializable{
                 ", phoneNum='" + phoneNum + '\'' +
                 ", status=" + status +
                 ", statusStr='" + statusStr + '\'' +
-                ", roles=" + roles +
+                ", role=" + role +
                 '}';
     }
 }

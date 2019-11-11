@@ -21,7 +21,7 @@ public class UserServiceImpl implements IUserService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 //        返回的是一个User对象
         UserInfo userInfo = userDAO.findByUserName(username);
-        User user = new User(userInfo.getUsername(),userInfo.getPassword(),getAuthority());
+        User user = new User(userInfo.getUsername(),"{noop}"+userInfo.getPassword(),getAuthority());
         return user;
     }
 
