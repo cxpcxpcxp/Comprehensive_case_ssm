@@ -32,5 +32,15 @@ public class OrdersController {
         return mv;
     }
 
+//    order_traveller多对多
+    @RequestMapping("findById.do")
+    public ModelAndView findById(String id){
+        ModelAndView mv = new ModelAndView();
+        Orders orders = odersService.findById(id);
+        mv.addObject("orders",orders);
+        mv.setViewName("orders-show");
+        return mv;
+    }
+
 
 }

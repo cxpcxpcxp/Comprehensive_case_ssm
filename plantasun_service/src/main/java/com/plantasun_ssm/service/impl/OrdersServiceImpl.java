@@ -21,4 +21,9 @@ public class OrdersServiceImpl implements IOdersService {
         return ordersDAO.findAll();
     }
 
+    @Override
+    public Orders findById(String id) {
+        return ordersDAO.findById(id);
+    }
+
 }

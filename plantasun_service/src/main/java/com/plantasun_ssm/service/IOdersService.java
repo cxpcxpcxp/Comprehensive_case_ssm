@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface IOdersService {
     public List<Orders> findAll(int page ,int pageSize);
+
+    Orders findById(String id);
 }
