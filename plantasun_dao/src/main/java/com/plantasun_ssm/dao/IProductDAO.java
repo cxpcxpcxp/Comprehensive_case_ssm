@@ -22,4 +22,7 @@ public interface IProductDAO {
             "#{cityName},#{DepartureTime},#{productPrice}," +
             "#{productDesc},#{productStatus})")
     void save(Product product);
+
+    @Select("select * from product where id = #{id}")
+    Product findProductById(String id);
 }

@@ -12,8 +12,7 @@ File Encoding         : 65001
 
 Date: 2019-11-11 20:36:50
 */
--- 所有的数据 ssm-mysql
--- 最终以这个为标准
+
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
