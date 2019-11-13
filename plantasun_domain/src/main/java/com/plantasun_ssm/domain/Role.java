@@ -1,5 +1,7 @@
 package com.plantasun_ssm.domain;
 
+import org.springframework.security.core.userdetails.User;
+
 import java.io.Serializable;
 import java.util.List;
 

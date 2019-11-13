@@ -42,4 +42,19 @@ public class UserServiceImpl implements IUserService {
         }
         return list;
     }
+
+    @Override
+    public List<UserInfo> findAll() {
+        return userDAO.findAll();
+    }
+
+    @Override
+    public void save(UserInfo userInfo) {
+        userDAO.save(userInfo);
+    }
+
+    @Override
+    public UserInfo findById(String id) {
+        return userDAO.findById(id);
+    }
 }
