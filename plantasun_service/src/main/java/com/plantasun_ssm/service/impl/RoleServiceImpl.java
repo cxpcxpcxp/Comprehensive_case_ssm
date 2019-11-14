@@ -22,4 +22,9 @@ public class RoleServiceImpl implements IRoleService {
     public void save(Role role) {
         roleDAO.save(role);
     }
+
+    @Override
+    public List<Role> findOtherRoles(String uid) {
+        return roleDAO.findOtherRoles(uid);
+    }
 }

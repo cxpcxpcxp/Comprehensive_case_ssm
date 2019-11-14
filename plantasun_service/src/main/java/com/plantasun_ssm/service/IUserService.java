@@ -11,4 +11,6 @@ public interface IUserService extends UserDetailsService {
     void save(UserInfo userInfo);
 
     UserInfo findById(String id);
+
+    void addRolesToUser(String userId, String[] ids);
 }

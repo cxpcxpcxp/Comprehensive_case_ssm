@@ -8,4 +8,6 @@ public interface IRoleService {
     List<Role> findAll();
 
     void save(Role role);
+
+    List<Role> findOtherRoles(String uid);
 }

@@ -57,4 +57,11 @@ public class UserServiceImpl implements IUserService {
     public UserInfo findById(String id) {
         return userDAO.findById(id);
     }
+
+    @Override
+    public void addRolesToUser(String userId, String[] ids) {
+        for (String roleId : ids) {
+            userDAO.addRolsToUser(userId,roleId);
+        }
+    }
 }

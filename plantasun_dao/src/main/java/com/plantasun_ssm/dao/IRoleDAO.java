@@ -28,4 +28,7 @@ public interface IRoleDAO {
     @Options(keyProperty = "id", useGeneratedKeys = true)
     @Insert("insert into role values(#{id},#{roleName},#{roleDesc})")
     void save(Role role);
+
+    @Select("select * from role where id not in(select roleId from users_role where userId=#{uid})")
+    List<Role> findOtherRoles(String uid);
 }

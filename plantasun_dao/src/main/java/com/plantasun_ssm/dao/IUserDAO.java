@@ -41,4 +41,7 @@ public interface IUserDAO {
                     many = @Many(select = "com.plantasun_ssm.dao.IRoleDAO.findRoleByUserIds"))
     })
     UserInfo findById(String id);
+
+    @Insert("insert into users_role values(#{userId},#{roleId})")
+    void addRolsToUser(@Param(value = "userId") String userId, @Param(value = "roleId") String roleId);
 }

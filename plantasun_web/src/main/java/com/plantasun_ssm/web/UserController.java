@@ -1,6 +1,8 @@
 package com.plantasun_ssm.web;
 
+import com.plantasun_ssm.domain.Role;
 import com.plantasun_ssm.domain.UserInfo;
+import com.plantasun_ssm.service.IRoleService;
 import com.plantasun_ssm.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +16,8 @@ import java.util.List;
 public class UserController {
     @Autowired
     IUserService userService;
+    @Autowired
+    IRoleService roleService;
     @RequestMapping("findAll.do")
     public ModelAndView findAll(){
         ModelAndView mv = new ModelAndView();
@@ -36,4 +40,22 @@ public class UserController {
         mv.setViewName("user-show");
         return mv;
     }
+
+    @RequestMapping("findUserByIdAndOtherRole.do")
+    public ModelAndView findUserByIdAndOtherRole(String id){
+        ModelAndView mv = new ModelAndView();
+        List<Role> roleList = roleService.findOtherRoles(id);
+        UserInfo user = userService.findById(id);
+        mv.addObject("roleList",roleList);
+        mv.addObject("user",user);
+        mv.setViewName("user-role-add");
+        return mv;
+    }
+
+    @RequestMapping("addRoleToUser.do")
+    public String addRoleToUser(String userId,String[] ids){
+        userService.addRolesToUser(userId,ids);
+        return "redirect:findAll.do";
+    }
+
 }
