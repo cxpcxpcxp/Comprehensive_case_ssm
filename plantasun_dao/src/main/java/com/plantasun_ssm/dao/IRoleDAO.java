@@ -1,10 +1,7 @@
 package com.plantasun_ssm.dao;
 
 import com.plantasun_ssm.domain.Role;
-import org.apache.ibatis.annotations.Many;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -22,4 +19,13 @@ public interface IRoleDAO {
 
     })
     public List<Role> findRoleByUserIds(String id);
+
+    @Select("select * from role")
+    List<Role> findAll();
+
+    @SelectKey(keyProperty = "id",resultType = String.class, before = true,
+            statement = "select replace(uuid(), '-', '')")
+    @Options(keyProperty = "id", useGeneratedKeys = true)
+    @Insert("insert into role values(#{id},#{roleName},#{roleDesc})")
+    void save(Role role);
 }
