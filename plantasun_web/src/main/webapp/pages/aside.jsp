@@ -58,12 +58,12 @@
 				<ul class="treeview-menu">
 			<li id="system-setting">
 				<%--隐藏数据--%>
-				<security:authorize access="hasRole('Boss')">
+				<%--<security:authorize access="hasRole('Boss')">--%>
 				<a
 						href="${pageContext.request.contextPath}/product/findAll.do">
 					<i class="fa fa-circle-o"></i> 产品管理
 				</a>
-				</security:authorize>
+				<%--</security:authorize>--%>
 			</li>
 			<li id="system-setting"><a
 					href="${pageContext.request.contextPath}/orders/findAll.do?pageNum=1&pageSize=5"> <i
