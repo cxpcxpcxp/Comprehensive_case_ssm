@@ -1,5 +1,6 @@
 package com.plantasun_ssm.dao;
 
+import com.plantasun_ssm.domain.Permission;
 import com.plantasun_ssm.domain.Role;
 import org.apache.ibatis.annotations.*;
 
@@ -29,6 +30,12 @@ public interface IRoleDAO {
     @Insert("insert into role values(#{id},#{roleName},#{roleDesc})")
     void save(Role role);
 
-    @Select("select * from role where id not in(select roleId from users_role where userId=#{uid})")
+    @Select("select * from role where id = #{id}")
+    Role findRoleById(String id);
+
+    @Insert("insert into role_permission values(#{roleId},#{id})")
+    void addPermissionToRole(@Param(value = "roleId") String roleId,@Param(value = "id") String id);
+
+    @Select("select * from role where id not in (select roleId from users_role where userId=#{uid})")
     List<Role> findOtherRoles(String uid);
 }

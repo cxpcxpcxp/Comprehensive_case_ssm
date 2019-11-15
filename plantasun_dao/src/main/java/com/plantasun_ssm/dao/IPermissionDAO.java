@@ -21,4 +21,7 @@ public interface IPermissionDAO {
     @Options(keyProperty = "id", useGeneratedKeys = true)
     @Insert("insert into permission values(#{id},#{permissionName},#{url})")
     void save(Permission permission);
+
+    @Select("select * from permission where id not in(select permissionId from role_permission where roleId = #{id})")
+    List<Permission> findOtherPermission(String id);
 }

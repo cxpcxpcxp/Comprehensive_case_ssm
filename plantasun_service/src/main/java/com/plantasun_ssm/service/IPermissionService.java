@@ -9,4 +9,6 @@ public interface IPermissionService {
     List<Permission> findAll();
 
     void save(Permission permission);
+
+    List<Permission> findOtherPermission(String id);
 }
