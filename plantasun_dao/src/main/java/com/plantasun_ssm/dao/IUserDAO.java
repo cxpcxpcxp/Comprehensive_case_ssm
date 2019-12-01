@@ -27,7 +27,7 @@ public interface IUserDAO {
     @SelectKey(keyProperty = "id",resultType = String.class, before = true,
             statement = "select replace(uuid(), '-', '')")
     @Options(keyProperty = "id", useGeneratedKeys = true)
-    @Insert("insert into users values(#{id},#{username},#{email},#{password},#{phoneNum},#{status})")
+    @Insert("insert into users values(#{id},#{email},#{username},#{password},#{phoneNum},#{status})")
     void save(UserInfo userInfo);
     @Select("select * from users where id = #{id}")
     @Results({

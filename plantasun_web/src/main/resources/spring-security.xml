@@ -12,6 +12,14 @@
     <security:http pattern="/css/**" security="none"/>
     <security:http pattern="/img/**" security="none"/>
     <security:http pattern="/plugins/**" security="none"/>
+    <security:global-method-security jsr250-annotations="enabled"/>
+
+    <!-- 退出 -->
+    <!--invalidate-session 杀死session  -->
+
+   <!-- <security:logout invalidate-session="true"
+                     logout-url="/logout.do"
+                     logout-success-url="/login.jsp" />-->
     <!--
        配置具体的规则
        auto-config="true" 不用自己编写登录的页面，框架提供默认登录页面
@@ -30,6 +38,9 @@
         />
         <!-- 关闭跨域请求 -->
         <security:csrf disabled="true"/>
+        <security:logout invalidate-session="true"
+                         logout-url="/logout.do"
+                         logout-success-url="/login.jsp"/>
     </security:http>
     <!-- 配置加密类 -->
     <bean id="passwordEncoder"

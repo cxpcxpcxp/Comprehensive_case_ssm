@@ -49,4 +49,13 @@ public class RoleController {
         roleService.addPermissionToRole(roleId,ids);
         return "redirect:findAll.do";
     }
+
+    @RequestMapping("findById.do")
+    public ModelAndView findById(String id){
+        ModelAndView mv = new ModelAndView();
+        Role role = roleService.findRoleById(id);
+        mv.addObject("role",role);
+        mv.setViewName("user-list");
+        return mv;
+    }
 }
